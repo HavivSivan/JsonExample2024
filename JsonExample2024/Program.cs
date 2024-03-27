@@ -1,4 +1,5 @@
 ﻿using JsonExample2024.Models;
+using System.Globalization;
 using System.Text.Json;
 
 
@@ -6,6 +7,7 @@ namespace JsonExample2024
 {
     internal class Program
     {
+        public MonkeyList monks=new MonkeyList();
         public static string BasicSerializtionExmaple(Student student)
         {
             string json = JsonSerializer.Serialize(student);
@@ -44,8 +46,29 @@ namespace JsonExample2024
 Final Grade:{sub.FinalGrade}");
             }
         }
-
-        
+        public void PrintMonkeyList(string str)
+        {
+            MonkeyList monkeys=new MonkeyList();
+            monkeys.monkeys=JsonSerializer.Deserialize<List<Monkey>>(str);
+            foreach(Monkey monkey in monkeys.monkeys)
+            {
+                Console.WriteLine(monkey.Name);
+                Console.WriteLine(monkey.Location);
+                Console.WriteLine(monkey.Details);
+                Console.WriteLine(monkey.Image);
+                Console.WriteLine(monkey.Population);
+                Console.WriteLine(monkey.Longitude);
+                Console.WriteLine(monkey.Latitude);
+            }
+        }
+        private void ToMonkeyList(string str)
+        {
+            monks.monkeys.Add(JsonSerializer.Deserialize<Monkey>(str));
+        }
+        public void PasteIntoMonkeys(Monkey monkey)
+        {
+            ToMonkeyList(JsonSerializer.Serialize(monkey));
+        }
 
        
         public static void DeserializtionWithOptions(string str)
@@ -116,7 +139,8 @@ Final Grade:{sub.FinalGrade}");
             DeserializtionWithOptions(jsonStr2);
             Console.WriteLine("---------------------");
             DeserializationWithPropertyNaming(jsonStr2);
-
+            
+            
         
            
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +10,12 @@ namespace JsonExample2024.Models
 
     public class MonkeyList
     {
-        public List<Monkey> Monkeys { get; set; }
+        public List<Monkey> monkeys { get; set; }
+        public MonkeyList()
+        {
+            monkeys = new List<Monkey>();
+        }
     }
-
     public class Monkey
     {
         public string Name { get; set; }
@@ -22,7 +26,6 @@ namespace JsonExample2024.Models
         public float Latitude { get; set; }
         public float Longitude { get; set; }
     }
-
 
 
 }
