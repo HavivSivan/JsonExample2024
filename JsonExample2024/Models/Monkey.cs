@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace JsonExample2024.Models
@@ -14,6 +15,15 @@ namespace JsonExample2024.Models
         public MonkeyList()
         {
             monkeys = new List<Monkey>();
+        }
+        public void FillList()
+        {
+            string text = File.ReadAllText(@"C:\Users\User\Source\Repos\HavivSivan\JsonExample2024\JsonExample2024\monkeydata.json");
+            List<Monkey> monkes=JsonSerializer.Deserialize<List<Monkey>>(text);
+            foreach (Monkey monkey in monkes)
+            {
+                monkeys.Add(monkey);
+            }
         }
     }
     public class Monkey

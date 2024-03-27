@@ -112,33 +112,33 @@ Final Grade:{sub.FinalGrade}");
         }
         static void Main(string[] args)
         {
-           
-            Student student = new Student() { BirthDate = new DateTime(2005, 12, 21), Id=1, Name = "Kuku Kaka" };
-            student.Subjects.Add(new Subject() { Id = 1, Name = "History", FinalGrade = 100 });
 
-           string jsonStr1= BasicSerializtionExmaple(student);
-            Console.WriteLine("---------------------");
-           
-            string jsonStr2=SerializeWithOptions(student);
-            Console.WriteLine("---------------------");
-            BasicDeserializtion(jsonStr1);
-            Console.WriteLine("---------------------");
+            //            Student student = new Student() { BirthDate = new DateTime(2005, 12, 21), Id=1, Name = "Kuku Kaka" };
+            //            student.Subjects.Add(new Subject() { Id = 1, Name = "History", FinalGrade = 100 });
 
-            
+            //           string jsonStr1= BasicSerializtionExmaple(student);
+            //            Console.WriteLine("---------------------");
 
-            BasicDeserializtion(jsonStr2);
-            Console.WriteLine("---------------------");
-           
-            
-            jsonStr2 = @"{
-    ""id"": 1,
-    ""Name"": ""Kuku Kaka"",
-    ""BirthDate"": ""2005-12-21T00:00:00"",
-    ""Wow"":""this is sample to show JsonProperty""
-}";
-            DeserializtionWithOptions(jsonStr2);
-            Console.WriteLine("---------------------");
-            DeserializationWithPropertyNaming(jsonStr2);
+            //            string jsonStr2=SerializeWithOptions(student);
+            //            Console.WriteLine("---------------------");
+            //            BasicDeserializtion(jsonStr1);
+            //            Console.WriteLine("---------------------");
+
+
+
+            //            BasicDeserializtion(jsonStr2);
+            //            Console.WriteLine("---------------------");
+
+
+            //            jsonStr2 = @"{
+            //    ""id"": 1,
+            //    ""Name"": ""Kuku Kaka"",
+            //    ""BirthDate"": ""2005-12-21T00:00:00"",
+            //    ""Wow"":""this is sample to show JsonProperty""
+            //}";
+            //            DeserializtionWithOptions(jsonStr2);
+            //            Console.WriteLine("---------------------");
+            //            DeserializationWithPropertyNaming(jsonStr2);
             
             
         
